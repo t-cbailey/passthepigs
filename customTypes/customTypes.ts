@@ -14,3 +14,5 @@ export interface PlayProps {
 }
 
 export interface CurrentTurnProps {}
+
+export type Roll = { roll1: string; roll2: string };
