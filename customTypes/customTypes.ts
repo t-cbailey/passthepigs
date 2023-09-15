@@ -1,3 +1,5 @@
+import { moves } from "../src/moves";
+
 export interface Player {
   name: string;
   totalScore: string;
@@ -13,4 +15,23 @@ export interface PlayProps {
   setPlayers: Function;
 }
 
-export interface CurrentTurnProps {}
+export interface CurrentTurnProps {
+  players: Player[];
+  setPlayers: Function;
+}
+
+export interface MoveButtonsProps {
+  setRoll: Function;
+  roll: Roll;
+}
+
+export type Roll = {
+  roll1: keyof typeof moves | "";
+  roll2: keyof typeof moves | "";
+};
+export type SingleRoll = { name: keyof typeof moves };
+
+export interface CurrentRollStatsProps {
+  roll: Roll;
+  setTurnScore: Function;
+}

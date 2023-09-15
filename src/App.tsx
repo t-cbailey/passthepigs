@@ -10,7 +10,6 @@ function App() {
   const [players, setPlayers] = React.useState<Player[]>([]);
   return (
     <>
-      <h1>Pass the Pigs Scorecard</h1>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route

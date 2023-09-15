@@ -7,7 +7,7 @@ function Play({ players, setPlayers }: PlayersProps) {
   console.log(players);
   return (
     <>
-      <CurrentTurn />
+      <CurrentTurn players={players} setPlayers={setPlayers} />
     </>
   );
 }

@@ -1,14 +1,51 @@
+#selectedMovesContainer {
+  height: fit-content;
+  background-color: antiquewhite;
+  border: 2px black solid;
+}
+
 .pigImg {
   max-width: 90%;
 }
+.singleMoveButtonContainer {
+  width: 50%;
+}
+.moveButton {
+  background-image: linear-gradient(aqua, rgb(200, 255, 255));
+  width: 95%;
+  margin: 5% 5% 0 0;
+}
 
-.turnButton {
-  background-color: aqua;
-  max-width: 20%;
+.moveButtonText {
+  margin: 0;
 }
 
 .selectedMove {
-  max-width: 10%;
+  width: 20vw;
+  height: fit-content;
+  margin: 5%;
+}
+
+.selectedMoveImg {
+  width: 20vw;
+  height: 20vw;
   background-color: yellow;
   border: 1px solid black;
+}
+#smTurnContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: fit-content;
+}
+.smTurnText {
+  margin: 2%;
+}
+
+#moveButtonsContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0%;
+  justify-content: center;
 }
