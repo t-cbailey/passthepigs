@@ -1,0 +1,14 @@
+.pigImg {
+  max-width: 90%;
+}
+
+.turnButton {
+  background-color: aqua;
+  max-width: 20%;
+}
+
+.selectedMove {
+  max-width: 10%;
+  background-color: yellow;
+  border: 1px solid black;
+}
