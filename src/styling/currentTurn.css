@@ -48,4 +48,6 @@
   flex-wrap: wrap;
   padding: 0%;
   justify-content: center;
+  height: fit-content;
+  margin-bottom: 20vh;
 }

@@ -6,6 +6,7 @@ import leaningJowler from "../assets/imgs/leaningJowler.webp";
 import trotter from "../assets/imgs/trotter.webp";
 import snouter from "../assets/imgs/snouter.webp";
 import makinBacon from "../assets/imgs/makinBacon.webp";
+import blank from "../assets/imgs/blank.webp";
 import { moves } from "../moves";
 import { CurrentRollStatsProps } from "../../customTypes/customTypes";
 
@@ -15,6 +16,8 @@ function CurrentRollStats({ roll, setTurnScore }: CurrentRollStatsProps) {
   const roll2Index = roll.roll2 as keyof typeof moves;
   const r1 = roll.roll1;
   const r2 = roll.roll2;
+
+  console.log(r1);
 
   React.useEffect(() => {
     if (r1 && r2 && r1 === r2 && r1 !== "sider") {
@@ -52,6 +55,8 @@ function CurrentRollStats({ roll, setTurnScore }: CurrentRollStatsProps) {
         return makinBacon;
       case "pigOut":
         return pigOut;
+      case "":
+        return blank;
     }
   };
   return (
@@ -61,7 +66,7 @@ function CurrentRollStats({ roll, setTurnScore }: CurrentRollStatsProps) {
         {r1 && r2 && r1 === r2 && `Double ${moves[roll1Index].name}!`}
         <div id="smTurnContainer">
           <div className="selectedMove">
-            <img className="selectedMoveImg" src={imgSelecter(r1)} alt={r1} />
+            <img className="selectedMoveImg" src={imgSelecter(r1)} alt={""} />
             <p className="smTurnText">
               {r1 && r1 !== r2 && moves[roll1Index].name}
             </p>

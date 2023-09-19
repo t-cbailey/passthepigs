@@ -23,7 +23,18 @@ export interface CurrentTurnProps {
 export interface MoveButtonsProps {
   setRoll: Function;
   roll: Roll;
+  buttonsDisabled: disableButtons;
+  setButtonsDisabled: Function;
 }
+type disableButtons = {
+  pigOut: boolean;
+  sider: boolean;
+  razorback: boolean;
+  leaningJowler: boolean;
+  trotter: boolean;
+  snouter: boolean;
+  makinBacon: boolean;
+};
 
 export type Roll = {
   roll1: keyof typeof moves | "";

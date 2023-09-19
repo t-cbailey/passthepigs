@@ -9,17 +9,12 @@ import snouter from "../assets/imgs/snouter.webp";
 import makinBacon from "../assets/imgs/makinBacon.webp";
 import { moves } from "../moves";
 
-function MoveButtons({ setRoll, roll }: MoveButtonsProps) {
-  const [buttonsDisabled, setButtonsDisabled] = React.useState({
-    pigOut: false,
-    sider: false,
-    razorback: false,
-    leaningJowler: false,
-    trotter: false,
-    snouter: false,
-    makinBacon: false,
-  });
-
+function MoveButtons({
+  setRoll,
+  roll,
+  setButtonsDisabled,
+  buttonsDisabled,
+}: MoveButtonsProps) {
   const handleSelect = (e: React.MouseEvent<HTMLButtonElement>) => {
     const { currentTarget } = e;
     const { name } = currentTarget as SingleRoll;
