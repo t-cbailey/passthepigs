@@ -7,11 +7,7 @@ import "./App.css";
 import { Player } from "../customTypes/customTypes";
 
 function App() {
-  const [players, setPlayers] = React.useState<Player[]>([
-    { name: "teddy", scores: [] },
-    { name: "aimee", scores: [] },
-    { name: "tim", scores: [] },
-  ]);
+  const [players, setPlayers] = React.useState<Player[]>([]);
   const [winningScore, setWinningScore] = React.useState(100);
 
   return (

@@ -69,12 +69,6 @@ function CurrentRollStats({
   };
 
   const handleEndTurn = () => {
-    setPlayers((curr: Player[]) => {
-      const temp = [...curr];
-      temp[currentPlayer].scores.push(turnScore);
-      return temp;
-    });
-
     setRollScore(0);
     setTurnScore(0);
     setRoll({ roll1: "", roll2: "" });
@@ -90,6 +84,15 @@ function CurrentRollStats({
     setCurrentPlayer((curr: number) => {
       return curr + 1 < players.length ? curr + 1 : 0;
     });
+  };
+
+  const handleKeepPoints = () => {
+    setPlayers((curr: Player[]) => {
+      const temp = [...curr];
+      temp[currentPlayer].scores.push(turnScore);
+      return temp;
+    });
+    handleEndTurn();
   };
 
   const handlePigOut = () => {
@@ -152,7 +155,7 @@ function CurrentRollStats({
             </p>
           </div>
         </div>
-        <button className="turnProgressionButton" onClick={handleEndTurn}>
+        <button className="turnProgressionButton" onClick={handleKeepPoints}>
           Keep points and quit
         </button>
         <button className="turnProgressionButton" onClick={handleNextRoll}>
