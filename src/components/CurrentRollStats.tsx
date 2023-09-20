@@ -8,10 +8,21 @@ import snouter from "../assets/imgs/snouter.webp";
 import makinBacon from "../assets/imgs/makinBacon.webp";
 import blank from "../assets/imgs/blank.webp";
 import { moves } from "../moves";
-import { CurrentRollStatsProps } from "../../customTypes/customTypes";
+import { CurrentRollStatsProps, Player } from "../../customTypes/customTypes";
 
-function CurrentRollStats({ roll, setTurnScore }: CurrentRollStatsProps) {
-  const [rollScore, setRollScore] = React.useState<number>(0);
+function CurrentRollStats({
+  roll,
+  setRoll,
+  setTurnScore,
+  rollScore,
+  setRollScore,
+  setButtonsDisabled,
+  setCurrentPlayer,
+  currentPlayer,
+  players,
+  turnScore,
+  setPlayers,
+}: CurrentRollStatsProps) {
   const roll1Index = roll.roll1 as keyof typeof moves;
   const roll2Index = roll.roll2 as keyof typeof moves;
   const r1 = roll.roll1;
@@ -20,7 +31,11 @@ function CurrentRollStats({ roll, setTurnScore }: CurrentRollStatsProps) {
   console.log(r1);
 
   React.useEffect(() => {
-    if (r1 && r2 && r1 === r2 && r1 !== "sider") {
+    if (r1 === "pigOut" || r2 === "pigOut") {
+      handlePigOut();
+    } else if (r1 === "makinBacon" || r2 === "makinBacon") {
+      handleMakinBacon();
+    } else if (r1 && r2 && r1 === r2 && r1 !== "sider") {
       const param = ("double" + r1) as keyof typeof moves;
       setRollScore(() => {
         return moves[param].value;
@@ -30,14 +45,69 @@ function CurrentRollStats({ roll, setTurnScore }: CurrentRollStatsProps) {
       setRollScore(() => {
         return score;
       });
-    } else setTurnScore(0);
-  }, [roll]);
+    } else setRollScore(0);
+  }, [r1, r2]);
 
   React.useEffect(() => {
     setTurnScore((curr: number) => {
       return rollScore + curr;
     });
   }, [rollScore]);
+
+  const handleNextRoll = () => {
+    setButtonsDisabled({
+      pigOut: false,
+      sider: false,
+      razorback: false,
+      leaningJowler: false,
+      trotter: false,
+      snouter: false,
+      makinBacon: false,
+    });
+    setRoll({ roll1: "", roll2: "" });
+    setRollScore(0);
+  };
+
+  const handleEndTurn = () => {
+    setPlayers((curr: Player[]) => {
+      const temp = [...curr];
+      temp[currentPlayer].scores.push(turnScore);
+      return temp;
+    });
+
+    setRollScore(0);
+    setTurnScore(0);
+    setRoll({ roll1: "", roll2: "" });
+    setButtonsDisabled({
+      pigOut: false,
+      sider: false,
+      razorback: false,
+      leaningJowler: false,
+      trotter: false,
+      snouter: false,
+      makinBacon: false,
+    });
+    setCurrentPlayer((curr: number) => {
+      return curr + 1 < players.length ? curr + 1 : 0;
+    });
+  };
+
+  const handlePigOut = () => {
+    setTurnScore(0);
+    setRollScore(0);
+    handleEndTurn();
+  };
+
+  const handleMakinBacon = () => {
+    setTurnScore(0);
+    setRollScore(0);
+    setPlayers((curr: Player[]) => {
+      const temp = [...curr];
+      temp[currentPlayer].scores = [];
+      return temp;
+    });
+    handleEndTurn();
+  };
 
   const imgSelecter = (img: string) => {
     switch (img) {
@@ -82,6 +152,12 @@ function CurrentRollStats({ roll, setTurnScore }: CurrentRollStatsProps) {
             </p>
           </div>
         </div>
+        <button className="turnProgressionButton" onClick={handleEndTurn}>
+          Keep points and quit
+        </button>
+        <button className="turnProgressionButton" onClick={handleNextRoll}>
+          {"Pig Head! (roll again)"}
+        </button>
       </div>
     </>
   );

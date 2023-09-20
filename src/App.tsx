@@ -7,7 +7,13 @@ import "./App.css";
 import { Player } from "../customTypes/customTypes";
 
 function App() {
-  const [players, setPlayers] = React.useState<Player[]>([]);
+  const [players, setPlayers] = React.useState<Player[]>([
+    { name: "teddy", scores: [] },
+    { name: "aimee", scores: [] },
+    { name: "tim", scores: [] },
+  ]);
+  const [winningScore, setWinningScore] = React.useState(100);
+
   return (
     <>
       <Routes>
@@ -18,7 +24,13 @@ function App() {
         />
         <Route
           path="/play"
-          element={<Play players={players} setPlayers={setPlayers} />}
+          element={
+            <Play
+              players={players}
+              setPlayers={setPlayers}
+              winningScore={winningScore}
+            />
+          }
         />
       </Routes>
     </>

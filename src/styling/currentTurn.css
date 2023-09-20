@@ -51,3 +51,12 @@
   height: fit-content;
   margin-bottom: 20vh;
 }
+#turnInfoContainer {
+  background-color: bisque;
+  border: 2px solid black;
+  margin: 5% 0%;
+}
+
+.turnProgressionButton {
+  margin: 1%;
+}

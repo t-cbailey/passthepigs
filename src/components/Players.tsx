@@ -17,7 +17,7 @@ function Players({ players, setPlayers }: PlayersProps) {
       return alert("Max 5 players");
     } else {
       if (name.length > 0) {
-        setPlayers([...players, { name: name, totalScore: "0" }]);
+        setPlayers([...players, { name: name, scores: [] }]);
         setName("");
       }
     }

@@ -2,7 +2,7 @@ import { moves } from "../src/moves";
 
 export interface Player {
   name: string;
-  totalScore: string;
+  scores: number[];
 }
 
 export interface PlayersProps {
@@ -13,11 +13,13 @@ export interface PlayersProps {
 export interface PlayProps {
   players: Player[];
   setPlayers: Function;
+  winningScore: number;
 }
 
 export interface CurrentTurnProps {
   players: Player[];
   setPlayers: Function;
+  winningScore: number;
 }
 
 export interface MoveButtonsProps {
@@ -44,5 +46,14 @@ export type SingleRoll = { name: keyof typeof moves };
 
 export interface CurrentRollStatsProps {
   roll: Roll;
+  setRoll: Function;
   setTurnScore: Function;
+  rollScore: number;
+  setRollScore: Function;
+  setButtonsDisabled: Function;
+  setCurrentPlayer: Function;
+  currentPlayer: number;
+  players: Player[];
+  turnScore: number;
+  setPlayers: Function;
 }
