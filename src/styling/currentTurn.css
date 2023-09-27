@@ -2,6 +2,7 @@
   height: fit-content;
   background-color: antiquewhite;
   border: 2px black solid;
+  margin-top: 5%;
 }
 
 .pigImg {
@@ -54,7 +55,10 @@
 #turnInfoContainer {
   background-color: bisque;
   border: 2px solid black;
-  margin: 5% 0%;
+  height: 99%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .turnProgressionButton {

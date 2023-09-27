@@ -10,8 +10,6 @@ function App() {
   const [players, setPlayers] = React.useState<Player[]>([]);
   const [winningScore, setWinningScore] = React.useState(100);
 
-  console.log(players);
-
   return (
     <>
       <Routes>
