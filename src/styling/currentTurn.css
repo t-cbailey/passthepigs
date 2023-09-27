@@ -56,7 +56,7 @@
 #turnInfoContainer {
   background-color: bisque;
   border: 2px solid black;
-  height: 99%;
+  height: 95%;
   display: flex;
   flex-direction: column;
   justify-content: center;
