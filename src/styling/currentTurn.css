@@ -9,12 +9,13 @@
   max-width: 90%;
 }
 .singleMoveButtonContainer {
-  width: 50%;
+  width: 33%;
 }
 .moveButton {
   background-image: linear-gradient(aqua, rgb(200, 255, 255));
   width: 95%;
   margin: 5% 5% 0 0;
+  height: 95%;
 }
 
 .moveButtonText {
