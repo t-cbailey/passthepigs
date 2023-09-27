@@ -1,7 +1,7 @@
 import { MoveButtonsProps, SingleRoll } from "../../customTypes/customTypes";
 import React from "react";
-import pigOut from "../assets/imgs/pigOut.webp";
-import sider from "../assets/imgs/sider.webp";
+import siderWithDot from "../assets/imgs/siderWithDot.webp";
+import siderNoDot from "../assets/imgs/siderNoDot.webp";
 import razorback from "../assets/imgs/razorback.webp";
 import leaningJowler from "../assets/imgs/leaningJowler.webp";
 import trotter from "../assets/imgs/trotter.webp";
@@ -19,13 +19,14 @@ function MoveButtons({
     const { currentTarget } = e;
     const { name } = currentTarget as SingleRoll;
     const doubleRolls = [
-      "sider",
+      "siderWithDot",
+      "siderNoDot",
       "leaningJowler",
       "snouter",
       "razorback",
       "trotter",
     ];
-    const singleRolls = ["pigOut", "makinBacon"];
+    const singleRolls = ["makinBacon"];
 
     if (doubleRolls.includes(name) && roll.roll1 === "") {
       setRoll({ roll1: name, roll2: roll.roll2 });
@@ -41,8 +42,8 @@ function MoveButtons({
 
   const disableAllButtons = () => {
     setButtonsDisabled({
-      pigOut: true,
-      sider: true,
+      siderNoDot: true,
+      siderWithDot: true,
       razorback: true,
       leaningJowler: true,
       trotter: true,
@@ -52,8 +53,8 @@ function MoveButtons({
   };
   const disableSingleButtons = () => {
     setButtonsDisabled({
-      pigOut: true,
-      sider: false,
+      siderNoDot: false,
+      siderWithDot: false,
       razorback: false,
       leaningJowler: false,
       trotter: false,
@@ -69,23 +70,23 @@ function MoveButtons({
           <li className="singleMoveButtonContainer">
             <button
               className="moveButton"
-              disabled={buttonsDisabled.pigOut}
-              name="pigOut"
+              disabled={buttonsDisabled.siderWithDot}
+              name="siderWithDot"
               onClick={handleSelect}
             >
-              <img className="pigImg" src={pigOut} alt="pig out" />
-              <p className="turnButtonText">{moves.pigOut.name}</p>
+              <img className="pigImg" src={siderWithDot} alt="sider with dot" />
+              <p className="turnButtonText">{moves.siderWithDot.name}</p>
             </button>
           </li>
           <li className="singleMoveButtonContainer">
             <button
               className="moveButton"
-              disabled={buttonsDisabled.sider}
-              name="sider"
+              disabled={buttonsDisabled.siderNoDot}
+              name="siderNoDot"
               onClick={handleSelect}
             >
-              <img className="pigImg" src={sider} alt="sider" />
-              <p className="turnButtonText">{moves.sider.name}</p>
+              <img className="pigImg" src={siderNoDot} alt="sider no dot" />
+              <p className="turnButtonText">{moves.siderNoDot.name}</p>
             </button>
           </li>
           <li className="singleMoveButtonContainer">

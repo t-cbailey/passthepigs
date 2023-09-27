@@ -1,8 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { PlayersProps } from "../../customTypes/customTypes";
+import "../styling/players.css";
 
-function Players({ players, setPlayers }: PlayersProps) {
+function Players({
+  players,
+  setPlayers,
+  setWinningScore,
+  winningScore,
+}: PlayersProps) {
   const [name, setName] = React.useState("");
   const [startButtonDisabled, setStartButtonDisabled] = React.useState(false);
   const navigate = useNavigate();
@@ -31,6 +37,10 @@ function Players({ players, setPlayers }: PlayersProps) {
         return player.name !== targetName;
       })
     );
+  };
+
+  const handleSetWinningScore = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setWinningScore(+e.target.value);
   };
 
   const handleStartGame = () => {
@@ -71,6 +81,12 @@ function Players({ players, setPlayers }: PlayersProps) {
       <form>
         <input type="text" value={name} onChange={handleNameChange} />
         <button onClick={addPlayer}>Add</button>
+        <h2>Set Winning Score...</h2>
+        <input
+          type="text"
+          value={winningScore}
+          onChange={handleSetWinningScore}
+        ></input>
       </form>
       <div className="bottomButtons">
         <button

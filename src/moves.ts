@@ -1,5 +1,6 @@
 export const moves = {
-  sider: { name: "Sider", value: 1 },
+  siderWithDot: { name: "Sider With Dot", value: 1 },
+  siderNoDot: { name: "Sider No Dot", value: 1 },
   razorback: { name: "Razorback", value: 5 },
   leaningJowler: { name: "Leaning Jowler", value: 15 },
   trotter: { name: "Trotter", value: 5 },

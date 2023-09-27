@@ -10,13 +10,22 @@ function App() {
   const [players, setPlayers] = React.useState<Player[]>([]);
   const [winningScore, setWinningScore] = React.useState(100);
 
+  console.log(players);
+
   return (
     <>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
           path="/players"
-          element={<Players players={players} setPlayers={setPlayers} />}
+          element={
+            <Players
+              players={players}
+              setPlayers={setPlayers}
+              setWinningScore={setWinningScore}
+              winningScore={winningScore}
+            />
+          }
         />
         <Route
           path="/play"

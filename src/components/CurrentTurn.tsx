@@ -1,18 +1,24 @@
 import React from "react";
-import { CurrentTurnProps, Roll } from "../../customTypes/customTypes";
-
-import "../styling/currentTurn.css";
+import { CurrentTurnProps, Roll, Player } from "../../customTypes/customTypes";
 import MoveButtons from "./MoveButtons";
 import CurrentRollStats from "./CurrentRollStats";
+import Win from "./Win";
 
-function CurrentTurn({ players, setPlayers, winningScore }: CurrentTurnProps) {
+function CurrentTurn({
+  players,
+  setPlayers,
+  winningScore,
+  currentPlayer,
+  turnScore,
+  setCurrentPlayer,
+  setTurnScore,
+}: CurrentTurnProps) {
   const [roll, setRoll] = React.useState<Roll>({ roll1: "", roll2: "" });
-  const [turnScore, setTurnScore] = React.useState<number>(0);
   const [rollScore, setRollScore] = React.useState<number>(0);
-  const [currentPlayer, setCurrentPlayer] = React.useState<number>(0);
   const [buttonsDisabled, setButtonsDisabled] = React.useState({
     pigOut: false,
-    sider: false,
+    siderNoDot: false,
+    siderWithDot: false,
     razorback: false,
     leaningJowler: false,
     trotter: false,
@@ -33,18 +39,33 @@ function CurrentTurn({ players, setPlayers, winningScore }: CurrentTurnProps) {
     }
   }, [players, turnScore, currentPlayer]);
 
+  React.useEffect(() => {
+    setPlayers((curr: Player[]) => {
+      const temp = [...curr];
+      temp[currentPlayer].scores.push(turnScore);
+      return temp;
+    });
+  }, [win]);
+
   if (win) {
-    return <>{<h1>{`${players[currentPlayer].name} wins!`}</h1>}</>;
+    return (
+      <>
+        <Win
+          setPlayers={setPlayers}
+          players={players}
+          currentPlayer={currentPlayer}
+          setTurnScore={setTurnScore}
+          setWin={setWin}
+          setRollScore={setRollScore}
+          setCurrentPlayer={setCurrentPlayer}
+          setButtonsDisabled={setButtonsDisabled}
+          setRoll={setRoll}
+        />
+      </>
+    );
   } else
     return (
       <>
-        <div id="turnInfoContainer">
-          {players[currentPlayer] && (
-            <h2>{`${players[currentPlayer]?.name}'s turn`}</h2>
-          )}
-          <p>{`Score this turn : ${turnScore}`}</p>
-        </div>
-
         <CurrentRollStats
           roll={roll}
           setRoll={setRoll}

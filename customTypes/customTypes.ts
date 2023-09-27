@@ -8,6 +8,8 @@ export interface Player {
 export interface PlayersProps {
   players: Player[];
   setPlayers: Function;
+  setWinningScore: Function;
+  winningScore: number;
 }
 
 export interface PlayProps {
@@ -20,6 +22,10 @@ export interface CurrentTurnProps {
   players: Player[];
   setPlayers: Function;
   winningScore: number;
+  currentPlayer: number;
+  turnScore: number;
+  setTurnScore: Function;
+  setCurrentPlayer: Function;
 }
 
 export interface MoveButtonsProps {
@@ -29,8 +35,8 @@ export interface MoveButtonsProps {
   setButtonsDisabled: Function;
 }
 type disableButtons = {
-  pigOut: boolean;
-  sider: boolean;
+  siderWithDot: boolean;
+  siderNoDot: boolean;
   razorback: boolean;
   leaningJowler: boolean;
   trotter: boolean;
@@ -56,4 +62,16 @@ export interface CurrentRollStatsProps {
   players: Player[];
   turnScore: number;
   setPlayers: Function;
+}
+
+export interface WinProps {
+  setTurnScore: Function;
+  setWin: Function;
+  players: Player[];
+  currentPlayer: number;
+  setPlayers: Function;
+  setRollScore: Function;
+  setCurrentPlayer: Function;
+  setButtonsDisabled: Function;
+  setRoll: Function;
 }
