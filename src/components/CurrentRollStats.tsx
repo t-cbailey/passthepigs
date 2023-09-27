@@ -94,6 +94,7 @@ function CurrentRollStats({
     setCurrentPlayer((curr: number) => {
       return curr + 1 < players.length ? curr + 1 : 0;
     });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handleKeepPoints = () => {
