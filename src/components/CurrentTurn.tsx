@@ -54,7 +54,6 @@ function CurrentTurn({
         <Win
           setPlayers={setPlayers}
           players={players}
-          currentPlayer={currentPlayer}
           setTurnScore={setTurnScore}
           setWin={setWin}
           setRollScore={setRollScore}

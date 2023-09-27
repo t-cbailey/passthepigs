@@ -9,7 +9,6 @@ function Win({
   setWin,
   setPlayers,
   players,
-  currentPlayer,
   setRollScore,
   setCurrentPlayer,
   setButtonsDisabled,

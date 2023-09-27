@@ -70,7 +70,6 @@ export interface WinProps {
   setTurnScore: Function;
   setWin: Function;
   players: Player[];
-  currentPlayer: number;
   setPlayers: Function;
   setRollScore: Function;
   setCurrentPlayer: Function;
