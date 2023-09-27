@@ -29,6 +29,10 @@ function CurrentRollStats({
   const r1 = roll.roll1;
   const r2 = roll.roll2;
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   React.useEffect(() => {
     if (
       (r1 === "siderWithDot" && r2 === "siderNoDot") ||
@@ -94,7 +98,7 @@ function CurrentRollStats({
     setCurrentPlayer((curr: number) => {
       return curr + 1 < players.length ? curr + 1 : 0;
     });
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    scrollToTop();
   };
 
   const handleKeepPoints = () => {
@@ -104,9 +108,11 @@ function CurrentRollStats({
       return temp;
     });
     handleEndTurn();
+    scrollToTop();
   };
 
   const handlePigOut = () => {
+    scrollToTop();
     setTurnButtonsDisabled(true);
     setRollScore(() => {
       return "PIG OUT!!!";
@@ -120,6 +126,7 @@ function CurrentRollStats({
   };
 
   const handleMakinBacon = () => {
+    scrollToTop();
     setTurnButtonsDisabled(true);
     setRollScore(() => {
       return "MAKIN' BACON!!!";

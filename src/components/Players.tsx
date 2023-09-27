@@ -19,8 +19,8 @@ function Players({
 
   const addPlayer = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    if (players.length === 5) {
-      return alert("Max 5 players");
+    if (players.length === 10) {
+      return alert("Max 10 players");
     } else {
       if (name.length > 0) {
         setPlayers([...players, { name: name, scores: [] }]);
@@ -81,7 +81,7 @@ function Players({
       <form>
         <input type="text" value={name} onChange={handleNameChange} />
         <button onClick={addPlayer}>Add</button>
-        <h2>Set Winning Score...</h2>
+        <h2>Set winning score...</h2>
         <input
           type="text"
           value={winningScore}

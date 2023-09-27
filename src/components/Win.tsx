@@ -2,6 +2,7 @@ import Confetti from "react-confetti";
 import "../styling/currentTurn.css";
 import { WinProps, Player } from "../../customTypes/customTypes";
 import { useNavigate } from "react-router-dom";
+import "../styling/win.css";
 
 function Win({
   setTurnScore,
@@ -68,9 +69,11 @@ function Win({
   return (
     <>
       <Confetti width={window.innerWidth} height={window.innerHeight} />
-      {<h1>{`${players[currentPlayer].name} wins!`}</h1>}
-      <button onClick={handlePlayAgain}>Play Again</button>
-      <button onClick={handleReset}>Reset</button>
+
+      <div id="gameEndButtonContainer">
+        <button onClick={handlePlayAgain}>Play Again</button>
+        <button onClick={handleReset}>Reset</button>
+      </div>
     </>
   );
 }

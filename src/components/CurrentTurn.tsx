@@ -12,6 +12,8 @@ function CurrentTurn({
   turnScore,
   setCurrentPlayer,
   setTurnScore,
+  win,
+  setWin,
 }: CurrentTurnProps) {
   const [roll, setRoll] = React.useState<Roll>({ roll1: "", roll2: "" });
   const [rollScore, setRollScore] = React.useState<number>(0);
@@ -25,7 +27,6 @@ function CurrentTurn({
     snouter: false,
     makinBacon: false,
   });
-  const [win, setWin] = React.useState(false);
 
   React.useEffect(() => {
     const currTotal =

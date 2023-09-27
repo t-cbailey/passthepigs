@@ -26,6 +26,8 @@ export interface CurrentTurnProps {
   turnScore: number;
   setTurnScore: Function;
   setCurrentPlayer: Function;
+  win: Boolean;
+  setWin: Function;
 }
 
 export interface MoveButtonsProps {

@@ -8,6 +8,7 @@ import React from "react";
 function Play({ players, setPlayers, winningScore }: PlayProps) {
   const [turnScore, setTurnScore] = React.useState<number>(0);
   const [currentPlayer, setCurrentPlayer] = React.useState<number>(0);
+  const [win, setWin] = React.useState(false);
   return (
     <>
       <Carousel
@@ -65,7 +66,9 @@ function Play({ players, setPlayers, winningScore }: PlayProps) {
       >
         <div id="turnInfoContainer">
           {players[currentPlayer] && (
-            <h2>{`${players[currentPlayer]?.name}'s turn`}</h2>
+            <h2>{`${players[currentPlayer]?.name} ${
+              win ? "Wins!" : "'s turn"
+            }`}</h2>
           )}
           <p>
             {typeof turnScore === "number"
@@ -103,6 +106,8 @@ function Play({ players, setPlayers, winningScore }: PlayProps) {
         winningScore={winningScore}
         setTurnScore={setTurnScore}
         setCurrentPlayer={setCurrentPlayer}
+        win={win}
+        setWin={setWin}
       />
     </>
   );
