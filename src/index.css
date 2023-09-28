@@ -9,6 +9,8 @@
   -webkit-text-size-adjust: 100%;
   max-width: 100%;
   box-sizing: border-box;
+  background-color: #b0f1de;
+  min-height: 95vh;
 }
 ul,
 ol {

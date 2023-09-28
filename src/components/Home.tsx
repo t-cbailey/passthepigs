@@ -10,10 +10,10 @@ function Home() {
   };
   return (
     <>
-      <h1>Pass the Pigs Scorecard</h1>
       <div>
         <img id="homeImg" src={Pass_The_Pigs_Logo} alt="bowling ball" />
       </div>
+      <h1 id="homeTitle">Scorecard</h1>
       <button id="startButton" onClick={handleGetStarted}>
         Get Started!
       </button>

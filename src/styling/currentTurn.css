@@ -4,9 +4,10 @@
 
 #selectedMovesContainer {
   height: fit-content;
-  background-color: antiquewhite;
+  background-color: #fae7e3;
   border: 2px black solid;
   margin-top: 5%;
+  box-shadow: 2px 2px 2px 1px #136e54;
 }
 
 .pigImg {
@@ -16,10 +17,11 @@
   width: 33%;
 }
 .moveButton {
-  background-image: linear-gradient(aqua, rgb(200, 255, 255));
+  background-image: linear-gradient(#b0e5f1, rgb(200, 255, 255));
   width: 95%;
   margin: 5% 5% 0 0;
   height: 95%;
+  box-shadow: 2px 2px 2px 1px #136e54;
 }
 
 .moveButtonText {
@@ -35,7 +37,7 @@
 .selectedMoveImg {
   width: 20vw;
   height: 20vw;
-  background-color: yellow;
+  background-color: #ddb0f1;
   border: 1px solid black;
 }
 #smTurnContainer {
@@ -59,12 +61,13 @@
 }
 #turnInfoContainer,
 #totalsContainer {
-  background-color: bisque;
+  background-color: #fae7e3;
   border: 2px solid black;
   height: 95%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  box-shadow: 2px 2px 2px 1px #136e54;
 }
 
 .turnProgressionButton {
