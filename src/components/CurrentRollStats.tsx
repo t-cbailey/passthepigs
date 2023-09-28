@@ -102,17 +102,18 @@ function CurrentRollStats({
     setCurrentPlayer((curr: number) => {
       return curr + 1 < players.length ? curr + 1 : 0;
     });
-    scrollToTop();
   };
 
   const handleKeepPoints = () => {
-    setPlayers((curr: Player[]) => {
-      const temp = [...curr];
-      temp[currentPlayer].scores.push(turnScore);
-      return temp;
-    });
-    handleEndTurn();
     scrollToTop();
+    setTimeout(() => {
+      setPlayers((curr: Player[]) => {
+        const temp = [...curr];
+        temp[currentPlayer].scores.push(turnScore);
+        return temp;
+      });
+      handleEndTurn();
+    }, 500);
   };
 
   const handlePigOut = () => {
