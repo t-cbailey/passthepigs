@@ -34,6 +34,10 @@ function CurrentRollStats({
   };
 
   React.useEffect(() => {
+    if (r1 === "" || r2 === "") {
+      setTurnButtonsDisabled(true);
+    } else setTurnButtonsDisabled(false);
+
     if (
       (r1 === "siderWithDot" && r2 === "siderNoDot") ||
       (r1 === "siderNoDot" && r2 === "siderWithDot")

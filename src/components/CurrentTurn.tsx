@@ -3,6 +3,7 @@ import { CurrentTurnProps, Roll, Player } from "../../customTypes/customTypes";
 import MoveButtons from "./MoveButtons";
 import CurrentRollStats from "./CurrentRollStats";
 import Win from "./Win";
+import "../styling/currentTurn.css";
 
 function CurrentTurn({
   players,
@@ -30,7 +31,7 @@ function CurrentTurn({
 
   React.useEffect(() => {
     const currTotal =
-      players[currentPlayer].scores.length > 0
+      players[currentPlayer]?.scores.length > 0
         ? players[currentPlayer].scores.reduce((a, b) => {
             return a + b;
           })
@@ -43,7 +44,7 @@ function CurrentTurn({
   React.useEffect(() => {
     setPlayers((curr: Player[]) => {
       const temp = [...curr];
-      temp[currentPlayer].scores.push(turnScore);
+      temp[currentPlayer]?.scores.push(turnScore);
       return temp;
     });
   }, [win]);
@@ -66,25 +67,27 @@ function CurrentTurn({
   } else
     return (
       <>
-        <CurrentRollStats
-          roll={roll}
-          setRoll={setRoll}
-          setTurnScore={setTurnScore}
-          rollScore={rollScore}
-          setRollScore={setRollScore}
-          setButtonsDisabled={setButtonsDisabled}
-          setCurrentPlayer={setCurrentPlayer}
-          currentPlayer={currentPlayer}
-          players={players}
-          turnScore={turnScore}
-          setPlayers={setPlayers}
-        />
-        <MoveButtons
-          setRoll={setRoll}
-          roll={roll}
-          setButtonsDisabled={setButtonsDisabled}
-          buttonsDisabled={buttonsDisabled}
-        />
+        <div id="statAndButtonContainer">
+          <CurrentRollStats
+            roll={roll}
+            setRoll={setRoll}
+            setTurnScore={setTurnScore}
+            rollScore={rollScore}
+            setRollScore={setRollScore}
+            setButtonsDisabled={setButtonsDisabled}
+            setCurrentPlayer={setCurrentPlayer}
+            currentPlayer={currentPlayer}
+            players={players}
+            turnScore={turnScore}
+            setPlayers={setPlayers}
+          />
+          <MoveButtons
+            setRoll={setRoll}
+            roll={roll}
+            setButtonsDisabled={setButtonsDisabled}
+            buttonsDisabled={buttonsDisabled}
+          />
+        </div>
       </>
     );
 }

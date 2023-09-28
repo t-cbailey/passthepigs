@@ -1,3 +1,7 @@
+#statAndButtonContainer {
+  width: 100%;
+}
+
 #selectedMovesContainer {
   height: fit-content;
   background-color: antiquewhite;
@@ -53,7 +57,8 @@
   height: fit-content;
   margin-bottom: 20vh;
 }
-#turnInfoContainer {
+#turnInfoContainer,
+#totalsContainer {
   background-color: bisque;
   border: 2px solid black;
   height: 95%;
@@ -64,4 +69,44 @@
 
 .turnProgressionButton {
   margin: 1%;
+}
+
+@media only screen and (min-width: 768px) {
+  #turnInfoContainer,
+  #totalsContainer {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  #selectedMovesContainer {
+    margin-top: 2%;
+    max-width: 50%;
+  }
+  #moveButtonsContainer {
+    max-width: 50%;
+  }
+
+  .selectedMove {
+    width: 20%;
+    height: fit-content;
+    margin: 2%;
+  }
+
+  .selectedMoveImg {
+    width: 100%;
+    height: 100%;
+    background-color: yellow;
+    border: 1px solid black;
+  }
+  #turnInfoContainer,
+  #totalsContainer {
+    width: 25%;
+  }
+  #statAndButtonContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
 }

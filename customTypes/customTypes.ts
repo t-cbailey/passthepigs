@@ -76,3 +76,14 @@ export interface WinProps {
   setButtonsDisabled: Function;
   setRoll: Function;
 }
+
+export interface TurnInfoProps {
+  players: Player[];
+  currentPlayer: number;
+  win: Boolean;
+  turnScore: number;
+}
+
+export interface TotalScoresProps {
+  players: Player[];
+}
